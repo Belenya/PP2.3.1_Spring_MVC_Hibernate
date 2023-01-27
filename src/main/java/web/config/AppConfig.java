@@ -58,7 +58,7 @@ public class AppConfig {
         Properties props = new Properties();
         props.setProperty(AvailableSettings.DIALECT, env.getProperty("hibernate.dialect"));
         props.setProperty(AvailableSettings.SHOW_SQL, env.getProperty("hibernate.show_sql"));
-//        props.setProperty(AvailableSettings.HBM2DDL_AUTO, env.getProperty("hibernate.hbm2dll_auto"));
+        props.setProperty(AvailableSettings.HBM2DDL_AUTO, env.getProperty("hibernate.hbm2dll_auto"));
         factoryBean.setJpaProperties(props);
         return factoryBean;
     }
