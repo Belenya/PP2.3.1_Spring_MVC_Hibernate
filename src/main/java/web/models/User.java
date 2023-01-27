@@ -1,7 +1,11 @@
 package web.models;
 
 
+
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
@@ -21,12 +25,17 @@ public class User {
     private long id;
 
     @Column
+    @NotEmpty(message = "Name should be not empty")
+    @Size(min = 2, max = 30, message = "Length is 2-30 characters")
     private String name;
 
     @Column
+    @NotEmpty(message = "Last Name should not be empty")
+    @Size(min = 2, max = 30, message = "Length is 2-30 characters")
     private String lastName;
 
     @Column
+    @Min(value = 0, message = "Age must be greater than 0")
     private byte age;
 
     public long getId() {
